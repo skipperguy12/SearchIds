@@ -1,0 +1,3 @@
+name: SearchIds
+main: org.bukkit.croemmich.searchids.SearchIds
+version: 1.0
