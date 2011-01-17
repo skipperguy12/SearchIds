@@ -1,3 +1,5 @@
+package org.bukkit.croemmich.searchids;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -6,23 +8,31 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.TreeMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.bukkit.Server;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
+import org.bukkit.event.Event.Priority;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.PluginLoader;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
 * @title  SearchIds
 * @description Search for data id's in game or from the console
-* @date 2010-11-26
+* @date 2011-01-16
 * @author croemmich
 */
-public class SearchIds extends Plugin  {
-	private Listener l = new Listener(this);
+public class SearchIds extends JavaPlugin  {
+
 	protected static final Logger log = Logger.getLogger("Minecraft");
+    private final SearchIdsPlayerListener playerListener = new SearchIdsPlayerListener(this);
 	public  static String name    = "SearchIds";
 	public  static String version = "1.0";
 
 	private static String propFile = "search-ids.properties";
-	private static PropertiesFile props;
+	private static iProperty props;
 	
 	// Properties
 	public  static String  searchType         = "all";
@@ -40,11 +50,25 @@ public class SearchIds extends Plugin  {
 	public  static DataParser  parser;
 	private UpdateThread updateThread;
 	
-	public void enable() {
+	public SearchIds(PluginLoader pluginLoader, Server instance, PluginDescriptionFile desc, File folder, File plugin, ClassLoader cLoader) {
+		super(pluginLoader, instance, desc, folder, plugin, cLoader);
+		
+		getServer().getPluginManager().registerEvent(Event.Type.PLAYER_COMMAND, playerListener, Priority.Normal, this);
+	}
+	
+
+	@Override
+	public void onDisable() {
+		parser = null;
+		log.info(name + " " + version + " disabled");
+	}
+
+	@Override
+	public void onEnable() {
 		log.info(name + " " + version + " enabled");
 		if (!initProps()) {
 			log.severe(name + ": Could not initialise " + propFile);
-			this.disable();
+			getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
 		
@@ -56,7 +80,7 @@ public class SearchIds extends Plugin  {
 			if (!autoUpdate) {
 				log.severe(name + ": Set auto-update-data=true in " + propFile + " to automatically download the search data file " + dataXml);
 			}			
-			this.disable();
+			getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
 		
@@ -64,27 +88,11 @@ public class SearchIds extends Plugin  {
 			if (updateThread == null)
 				updateThread = new UpdateThread(this);
 			updateThread.start();
-		}		
-		etc.getInstance().addCommand("/"+searchCommand, " - Search for a block id");
-	}
-	
-	public void disable() {
-		etc.getInstance().removeCommand("/"+searchCommand);
-		if (updateThread != null) {
-			updateThread.stop();
-			updateThread = null;
 		}
-		parser = null;
-		log.info(name + " " + version + " disabled");
 	}
 
-	public void initialize() {
-		etc.getLoader().addListener( PluginLoader.Hook.COMMAND, l, this, PluginListener.Priority.MEDIUM);
-		etc.getLoader().addListener( PluginLoader.Hook.SERVERCOMMAND, l, this, PluginListener.Priority.MEDIUM);
-	}
-	
 	public boolean initProps() {
-		props = new PropertiesFile(propFile);
+		props = new iProperty(propFile);
 		
 		// Properties
 		searchType         = props.getString("search-type", "all");
@@ -92,7 +100,7 @@ public class SearchIds extends Plugin  {
 		searchCommand      = props.getString("command", "search");
 		consoleCommand     = props.getString("console-command", "search");
 		dataXml            = props.getString("data-xml", "search-ids-data.xml");
-		updateSource       = props.getString("update-source", "https://cr-wd.com/minecraft/plugins/SearchIds/data.xml");
+		updateSource       = props.getString("update-source", "https://github.com/croemmich/SearchIds/raw/master/search-ids-data.xml");
 		autoUpdate         = props.getBoolean("auto-update-data", true);
 		autoUpdateInterval = props.getInt("auto-update-interval", 86400);
 		nameWidth          = props.getInt("width-blockname", 24);
@@ -153,44 +161,7 @@ public class SearchIds extends Plugin  {
 		}
 	}
 	
-	private void printConsoleResults(TreeMap<Integer,String> results) {
-		boolean selfLevel = true;
-		boolean hasParent = false;
-		Level oldLevel = log.getLevel();
-		if (oldLevel == null) {
-			selfLevel = false;
-		}
-		if (!selfLevel && log.getParent() != null) {
-			oldLevel = log.getParent().getLevel();
-			if (oldLevel != null) {
-				hasParent = true;
-			}
-		}
-		
-		if (oldLevel != null)
-			log.setLevel(Level.INFO);
-		
-		if (results.size() > 0) {
-		    Iterator<Integer> itr = results.keySet().iterator();
-			StringBuffer sb = new StringBuffer("\n");
-			while (itr.hasNext()) {
-				int number = itr.next();
-				String blockname = results.get(number);
-				sb.append(leftPad(getBlockId(number), numWidth) + " " + delimiter + " " +rightPad(blockname, nameWidth) + "\n");
-			}
-			log.info(sb.toString());
-		} else {
-			log.info("No results found");
-		}
-		
-		if (hasParent && oldLevel != null) {
-			log.getParent().setLevel(oldLevel);
-		} else if (selfLevel && oldLevel != null) {
-			log.setLevel(oldLevel);
-		}
-	}
-	
-	private void printSearchResults(Player player, TreeMap<Integer,String> results) {
+	public void printSearchResults(Player player, TreeMap<Integer,String> results) {
 		if (results.size() > 0) {
 			Iterator<Integer> itr = results.keySet().iterator();
 			String line = "";
@@ -230,42 +201,4 @@ public class SearchIds extends Plugin  {
     public static String rightPad(String s, int width) {
         return String.format("%-" + width + "s", s);
     }
-
-	public class Listener extends PluginListener {
-		SearchIds p;
-		
-		public Listener(SearchIds plugin) {
-			p = plugin;
-		}
-
-		public boolean onCommand(Player player, String[] split) {
-			if (split[0].equalsIgnoreCase("/"+searchCommand) && player.canUseCommand("/"+searchCommand)) {
-				if (split.length > 1) {
-					String query = "";
-					for (int i = 1; i<split.length; i++) {
-						query += (split[i] + " ");
-					}
-					query = query.trim();
-					printSearchResults(player, parser.search(query, base));
-				} else {
-					player.sendMessage(Colors.Rose + "Correct usage is: " + "/"+searchCommand + " [item to search for]");
-				}
-				return true;
-			}
-			return false;
-		}
-
-		public boolean onConsoleCommand(String[] split) {
-			if (split.length > 1 && split[0].equalsIgnoreCase(consoleCommand)) {
-				String query = "";
-				for (int i = 1; i<split.length; i++) {
-					query += (split[i] + " ");
-				}
-				query = query.trim();
-				printConsoleResults(parser.search(query, base));
-				return true;
-			}
-			return false;
-		}
-	}
 }

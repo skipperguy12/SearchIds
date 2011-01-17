@@ -1,3 +1,4 @@
+package org.bukkit.croemmich.searchids;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;

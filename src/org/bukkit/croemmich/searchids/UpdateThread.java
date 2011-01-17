@@ -1,3 +1,4 @@
+package org.bukkit.croemmich.searchids;
 public class UpdateThread implements Runnable {
     private boolean running = false;
     private Thread thread;
