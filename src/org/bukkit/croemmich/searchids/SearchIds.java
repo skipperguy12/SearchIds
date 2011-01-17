@@ -29,7 +29,7 @@ public class SearchIds extends JavaPlugin  {
 	protected static final Logger log = Logger.getLogger("Minecraft");
     private final SearchIdsPlayerListener playerListener = new SearchIdsPlayerListener(this);
 	public  static String name    = "SearchIds";
-	public  static String version = "1.0";
+	public  static String version = "1.1";
 
 	private static String propFile = "search-ids.properties";
 	private static iProperty props;
@@ -40,7 +40,6 @@ public class SearchIds extends JavaPlugin  {
 	public  static String  updateSource       = "https://cr-wd.com/minecraft/plugins/SearchIds/data.xml";
 	public  static boolean autoUpdate         = true;
 	public  static String  searchCommand      = "search";
-	public  static String  consoleCommand     = "search";
 	public  static String  base               = "decimal";
 	public  static int     nameWidth          = 24;
 	public  static int     numWidth           = 4;
@@ -98,7 +97,6 @@ public class SearchIds extends JavaPlugin  {
 		searchType         = props.getString("search-type", "all");
 		base               = props.getString("base", "decimal");
 		searchCommand      = props.getString("command", "search");
-		consoleCommand     = props.getString("console-command", "search");
 		dataXml            = props.getString("data-xml", "search-ids-data.xml");
 		updateSource       = props.getString("update-source", "https://github.com/croemmich/SearchIds/raw/master/search-ids-data.xml");
 		autoUpdate         = props.getBoolean("auto-update-data", true);
@@ -161,8 +159,9 @@ public class SearchIds extends JavaPlugin  {
 		}
 	}
 	
-	public void printSearchResults(Player player, TreeMap<Integer,String> results) {
+	public void printSearchResults(Player player, TreeMap<Integer,String> results, String query) {
 		if (results.size() > 0) {
+			player.sendMessage(Colors.LightBlue+"Search results for \"" + query + "\":");
 			Iterator<Integer> itr = results.keySet().iterator();
 			String line = "";
 			int num = 0;
@@ -176,8 +175,8 @@ public class SearchIds extends JavaPlugin  {
 					player.sendMessage(Colors.Gold + line.trim());
 					line = "";
 				}
-				if (num > 18) {
-					player.sendMessage(Colors.Gold + "Not all results are displayed. Make your term more specific!");
+				if (num > 16) {
+					player.sendMessage(Colors.Rose + "Not all results are displayed. Make your term more specific!");
 					break;
 				}
 			}
