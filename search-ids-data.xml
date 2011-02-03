@@ -84,7 +84,7 @@
 		<item hex="50" dec="80" name="Snow block"/> 
 		<item hex="51" dec="81" name="Cactus"/> 
 		<item hex="52" dec="82" name="Clay block"/> 
-		<item hex="53" dec="83" name="Reed block"/> 
+		<item hex="53" dec="83" name="Sugar Cane Block (Reed)"/> 
 		<item hex="54" dec="84" name="Jukebox"/> 
 		<item hex="55" dec="85" name="Fence"/> 
 		<item hex="56" dec="86" name="Pumpkin"/> 
@@ -178,7 +178,7 @@
 		<item hex="14F" dec="335" name="Milk bucket"/> 
 		<item hex="150" dec="336" name="Brick"/> 
 		<item hex="151" dec="337" name="Clay"/> 
-		<item hex="152" dec="338" name="Reed"/> 
+		<item hex="152" dec="338" name="Sugar Cane (Reed)"/> 
 		<item hex="153" dec="339" name="Paper"/> 
 		<item hex="154" dec="340" name="Book"/> 
 		<item hex="155" dec="341" name="Slime ball"/> 
