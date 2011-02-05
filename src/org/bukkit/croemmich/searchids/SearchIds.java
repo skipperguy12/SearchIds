@@ -29,8 +29,8 @@ public class SearchIds extends JavaPlugin  {
 
 	protected static final Logger log = Logger.getLogger("Minecraft");
     private final SearchIdsPlayerListener playerListener = new SearchIdsPlayerListener(this);
-	public  static String name    = "SearchIds";
-	public  static String version = "1.1";
+	public  String name    = getDescription().getName();
+	public  String version = getDescription().getVersion();
 
 	private static String propFile = "search-ids.properties";
 	private static iProperty props;
@@ -171,7 +171,7 @@ public class SearchIds extends JavaPlugin  {
 			while (itr.hasNext()) {
 				num++;
 				Result result = itr.next();
-				line += (rightPad(result.getFullValue(), numWidth) + " " + delimiter + " " +rightPad(result.getName(), nameWidth));
+				line += (rightPad(result.getFullValue(), result.getValuePad()) + " " + delimiter + " " +rightPad(result.getName(), nameWidth));
 				if (num % 2 == 0 || !itr.hasNext()) {
 					player.sendMessage(ChatColor.GOLD + line.trim());
 					line = "";

@@ -43,7 +43,19 @@ public class Result {
 		if (id == 0) {
 			 return getValue();
 		} else {
-			return getValue()+ChatColor.GRAY+":"+getId()+ChatColor.GOLD;
+			if (id>=10) {
+				return getValue()+ChatColor.GRAY+":"+getId()+ChatColor.GOLD;
+			} else {
+				return getValue()+ChatColor.GRAY+":"+getId()+" "+ChatColor.GOLD;
+			}
+		}
+	}
+
+	public int getValuePad() {
+		if (id <= 0) {
+			return SearchIds.numWidth;
+		} else {
+			return SearchIds.numWidth+3;
 		}
 	}
 	
