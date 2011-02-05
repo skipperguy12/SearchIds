@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.TreeMap;
 import java.util.logging.Logger;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -41,6 +42,7 @@ public class SearchIds extends JavaPlugin  {
 	public  static boolean autoUpdate         = true;
 	public  static String  searchCommand      = "search";
 	public  static String  base               = "decimal";
+	public  static String  baseId             = "decimal";
 	public  static int     nameWidth          = 24;
 	public  static int     numWidth           = 4;
 	public  static String  delimiter          = "-";
@@ -96,6 +98,7 @@ public class SearchIds extends JavaPlugin  {
 		// Properties
 		searchType         = props.getString("search-type", "all");
 		base               = props.getString("base", "decimal");
+		baseId             = props.getString("base-id", "decimal");
 		searchCommand      = props.getString("command", "search");
 		dataXml            = props.getString("data-xml", "search-ids-data.xml");
 		updateSource       = props.getString("update-source", "https://github.com/croemmich/SearchIds/raw/master/search-ids-data.xml");
@@ -159,37 +162,27 @@ public class SearchIds extends JavaPlugin  {
 		}
 	}
 	
-	public void printSearchResults(Player player, TreeMap<Integer,String> results, String query) {
+	public void printSearchResults(Player player, ArrayList<Result> results, String query) {
 		if (results.size() > 0) {
-			player.sendMessage(Colors.LightBlue+"Search results for \"" + query + "\":");
-			Iterator<Integer> itr = results.keySet().iterator();
+			player.sendMessage(ChatColor.AQUA+"Search results for \"" + query + "\":");
+			Iterator<Result> itr = results.iterator();
 			String line = "";
 			int num = 0;
 			while (itr.hasNext()) {
 				num++;
-				int number = itr.next();
-				String blockname = results.get(number);
-
-				line += (rightPad(getBlockId(number), numWidth) + " " + delimiter + " " +rightPad(blockname, nameWidth));
+				Result result = itr.next();
+				line += (rightPad(result.getFullValue(), numWidth) + " " + delimiter + " " +rightPad(result.getName(), nameWidth));
 				if (num % 2 == 0 || !itr.hasNext()) {
-					player.sendMessage(Colors.Gold + line.trim());
+					player.sendMessage(ChatColor.GOLD + line.trim());
 					line = "";
 				}
 				if (num > 16) {
-					player.sendMessage(Colors.Rose + "Not all results are displayed. Make your term more specific!");
+					player.sendMessage(ChatColor.RED + "Not all results are displayed. Make your term more specific!");
 					break;
 				}
 			}
 		} else {
-			player.sendMessage(Colors.Rose + "No results found");
-		}
-	}
-	
-	private String getBlockId(int block) {
-		if (base.equalsIgnoreCase("hex") || base.equalsIgnoreCase("hexadecimal")) {
-			return Integer.toHexString(block).toUpperCase();
-		} else {
-			return String.valueOf(block);
+			player.sendMessage(ChatColor.RED + "No results found");
 		}
 	}
 	

@@ -31,6 +31,7 @@
 		<item hex="17" dec="23" name="Dispenser"/>
 		<item hex="18" dec="24" name="Sandstone"/>
 		<item hex="19" dec="25" name="Note Block"/>
+		<item hex="23" dec="35" id="0" name="Cloth (wool)"/>
 		<item hex="23" dec="35" id="1" name="Orange Cloth"/>
 		<item hex="23" dec="35" id="2" name="Orange Cloth"/>
 		<item hex="23" dec="35" id="3" name="Magenta Cloth"/>
@@ -46,7 +47,6 @@
 		<item hex="23" dec="35" id="13" name="Dark Green Cloth"/>
 		<item hex="23" dec="35" id="14" name="Red Cloth"/>
 		<item hex="23" dec="35" id="15" name="Black Cloth"/>
-		<item hex="23" dec="35" id="0" name="Cloth (wool)"/>
 		<item hex="25" dec="37" name="Flower"/> 
 		<item hex="26" dec="38" name="Rose"/> 
 		<item hex="27" dec="39" name="Brown mushroom"/> 
@@ -111,9 +111,9 @@
 		<item hex="103" dec="259" name="Flint and steel"/> 
 		<item hex="104" dec="260" name="Apple"/> 
 		<item hex="105" dec="261" name="Bow"/> 
-		<item hex="106" dec="262" name="Arrow"/> 
-		<item hex="107" dec="263" id="1" name="Charcoal"/>
+		<item hex="106" dec="262" name="Arrow"/>
 		<item hex="107" dec="263" id="0" name="Coal"/> 
+		<item hex="107" dec="263" id="1" name="Charcoal"/>
 		<item hex="108" dec="264" name="Diamond"/> 
 		<item hex="109" dec="265" name="Iron bar"/> 
 		<item hex="10A" dec="266" name="Gold bar"/> 
@@ -200,22 +200,23 @@
 		<item hex="15B" dec="347" name="Watch"/> 
 		<item hex="15C" dec="348" name="Lightstone dust"/> 
 		<item hex="15D" dec="349" name="Fish"/> 
-		<item hex="15E" dec="350" name="Cooked fish"/> 
+		<item hex="15E" dec="350" name="Cooked fish"/>
+		<item hex="15F" dec="351" id="0" name="Ink Sack (Dye)"/> 
 		<item hex="15F" dec="351" id="1" name="Rose Red (Dye)"/>
-		<item hex="15F" dec="351" id="3" name="Cactus Green (Dye)"/> 
-		<item hex="15F" dec="351" id="4" name="Coco Beans (Dye)"/> 
-		<item hex="15F" dec="351" id="5" name="Lapis Lazuli (Dye)"/> 
-		<item hex="15F" dec="351" id="6" name="Purple (Dye)"/> 
-		<item hex="15F" dec="351" id="7" name="Cyan (Dye)"/> 
-		<item hex="15F" dec="351" id="8" name="Light Gray (Dye)"/> 
-		<item hex="15F" dec="351" id="9" name="Gray (Dye)"/> 
-		<item hex="15F" dec="351" id="10" name="Pink (Dye)"/> 
+		<item hex="15F" dec="351" id="2" name="Cactus Green (Dye)"/> 
+		<item hex="15F" dec="351" id="3" name="Coco Beans (Dye)"/> 
+		<item hex="15F" dec="351" id="4" name="Lapis Lazuli (Dye)"/> 
+		<item hex="15F" dec="351" id="5" name="Purple (Dye)"/> 
+		<item hex="15F" dec="351" id="6" name="Cyan (Dye)"/> 
+		<item hex="15F" dec="351" id="7" name="Light Gray (Dye)"/> 
+		<item hex="15F" dec="351" id="8" name="Gray (Dye)"/> 
+		<item hex="15F" dec="351" id="9" name="Pink (Dye)"/> 
+		<item hex="15F" dec="351" id="10" name="Lime (Dye)"/> 
 		<item hex="15F" dec="351" id="11" name="Dandelion Yellow (Dye)"/> 
 		<item hex="15F" dec="351" id="12" name="Light Blue (Dye)"/>
 		<item hex="15F" dec="351" id="13" name="Magenta (Dye)"/> 
 		<item hex="15F" dec="351" id="14" name="Orange (Dye)"/> 
-		<item hex="15F" dec="351" id="14" name="Bone Meal (Dye)"/> 
-		<item hex="15F" dec="351" id="0" name="Ink Sack (Dye)"/> 
+		<item hex="15F" dec="351" id="15" name="Bone Meal (Dye)"/> 
 		<item hex="160" dec="352" name="Bone"/> 
 		<item hex="161" dec="353" name="Sugar"/> 
 		<item hex="162" dec="354" name="Cake"/> 

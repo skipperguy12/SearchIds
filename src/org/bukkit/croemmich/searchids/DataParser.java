@@ -1,5 +1,5 @@
 package org.bukkit.croemmich.searchids;
-import java.util.TreeMap;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
@@ -18,18 +18,18 @@ public class DataParser {
 		
 	}
 	
-	public TreeMap<Integer, String> search(String query) {
+	public ArrayList<Result> search(String query) {
 		return search(query, "decimal");
 	}
 	
-	public TreeMap<Integer, String> search(String query, String base) {
+	public ArrayList<Result> search(String query, String base) {
 		try {
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser saxParser = factory.newSAXParser();
 			DataHandler handler = new DataHandler();
 			handler.setPattern(Pattern.compile(".*?"+Pattern.quote(query)+".*", Pattern.CASE_INSENSITIVE));
 			saxParser.parse(SearchIds.dataXml, handler);
-			return handler.getData();
+			return handler.getResults();
 		} catch (Exception e) {
 		}
 		return null;
@@ -43,14 +43,14 @@ public class DataParser {
 		
 		private Pattern pattern;
 		
-		private TreeMap<Integer, String> hm = new TreeMap<Integer, String>();
+		private ArrayList<Result> results = new ArrayList<Result>();
 
 		public void setPattern (Pattern pattern) {
 			this.pattern = pattern;
 		}
 		
-		public TreeMap<Integer, String> getData() {
-			return hm;
+		public ArrayList<Result> getResults() {
+			return results;
 		}
 		
 		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
@@ -74,11 +74,16 @@ public class DataParser {
 					(SearchIds.searchType.equalsIgnoreCase("items") && items  == true)) {
 					
 					String name = attributes.getValue("name");
-					String value = attributes.getValue("dec"); 
+					String value = attributes.getValue("dec");
+					String id = attributes.getValue("id");
 
 					if (name != null && value != null) {
 						if (pattern.matcher(name).matches()) {
-							hm.put(Integer.valueOf(value) , name);
+							if (id != null) {
+								results.add(new Result(Integer.valueOf(value), Integer.valueOf(id), name));
+							} else {
+								results.add(new Result(Integer.valueOf(value), name));
+							}
 						}
 					} else {
 						log.severe("Name or value is null on an item");
