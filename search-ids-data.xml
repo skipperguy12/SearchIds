@@ -18,8 +18,12 @@
 		<item hex="E" dec="14" name="Gold ore"/> 
 		<item hex="F" dec="15" name="Iron ore"/> 
 		<item hex="10" dec="16" name="Coal ore"/> 
-		<item hex="11" dec="17" name="Log"/> 
-		<item hex="12" dec="18" name="Leaves"/> 
+		<item hex="11" dec="17" id="0" name="Log"/>
+		<item hex="11" dec="17" id="1" name="Redwood (Log)"/>
+		<item hex="11" dec="17" id="2" name="Birch (Log)"/>
+		<item hex="12" dec="18" id="0" name="Leaves"/>
+		<item hex="12" dec="18" id="2" name="Redwood (Leaves)"/> 
+		<item hex="12" dec="18" id="3" name="Birch (Leaves)"/> 
 		<item hex="13" dec="19" name="Sponge"/> 
 		<item hex="14" dec="20" name="Glass"/>
 		<item hex="15" dec="21" name="Lapis Lazuli Ore"/>
@@ -27,17 +31,22 @@
 		<item hex="17" dec="23" name="Dispenser"/>
 		<item hex="18" dec="24" name="Sandstone"/>
 		<item hex="19" dec="25" name="Note Block"/>
-		<item hex="1A" dec="26" name="Aquagreen Cloth"/>
-		<item hex="1B" dec="27" name="Cyan Cloth"/>
-		<item hex="1C" dec="28" name="Blue Cloth"/>
-		<item hex="1D" dec="29" name="Purple Cloth"/>
-		<item hex="1E" dec="30" name="Indigo Cloth"/>
-		<item hex="1F" dec="31" name="Violet Cloth"/>
-		<item hex="20" dec="32" name="Magenta Cloth"/>
-		<item hex="21" dec="33" name="Pink Cloth"/>
-		<item hex="22" dec="34" name="Black Cloth (wool)"/>
-		<item hex="23" dec="35" name="Gray Cloth (wool)"/> 
-		<item hex="24" dec="36" name="White Cloth (wool)"/> 
+		<item hex="23" dec="35" id="1" name="Orange Cloth"/>
+		<item hex="23" dec="35" id="2" name="Orange Cloth"/>
+		<item hex="23" dec="35" id="3" name="Magenta Cloth"/>
+		<item hex="23" dec="35" id="4" name="Light Blue Cloth"/>
+		<item hex="23" dec="35" id="5" name="Yellow Cloth"/>
+		<item hex="23" dec="35" id="6" name="Light Green Cloth"/>
+		<item hex="23" dec="35" id="7" name="Pink Cloth"/>
+		<item hex="23" dec="35" id="8" name="Light Gray Cloth"/>
+		<item hex="23" dec="35" id="9" name="Cyan Cloth"/>
+		<item hex="23" dec="35" id="10" name="Purple Cloth"/>
+		<item hex="23" dec="35" id="11" name="Blue Cloth"/>
+		<item hex="23" dec="35" id="12" name="Brown Cloth"/>
+		<item hex="23" dec="35" id="13" name="Dark Green Cloth"/>
+		<item hex="23" dec="35" id="14" name="Red Cloth"/>
+		<item hex="23" dec="35" id="15" name="Black Cloth"/>
+		<item hex="23" dec="35" id="0" name="Cloth (wool)"/>
 		<item hex="25" dec="37" name="Flower"/> 
 		<item hex="26" dec="38" name="Rose"/> 
 		<item hex="27" dec="39" name="Brown mushroom"/> 
@@ -103,7 +112,8 @@
 		<item hex="104" dec="260" name="Apple"/> 
 		<item hex="105" dec="261" name="Bow"/> 
 		<item hex="106" dec="262" name="Arrow"/> 
-		<item hex="107" dec="263" name="Coal"/> 
+		<item hex="107" dec="263" id="1" name="Charcoal"/>
+		<item hex="107" dec="263" id="0" name="Coal"/> 
 		<item hex="108" dec="264" name="Diamond"/> 
 		<item hex="109" dec="265" name="Iron bar"/> 
 		<item hex="10A" dec="266" name="Gold bar"/> 
@@ -191,7 +201,21 @@
 		<item hex="15C" dec="348" name="Lightstone dust"/> 
 		<item hex="15D" dec="349" name="Fish"/> 
 		<item hex="15E" dec="350" name="Cooked fish"/> 
-		<item hex="15F" dec="351" name="Ink Sack"/> 
+		<item hex="15F" dec="351" id="1" name="Rose Red (Dye)"/>
+		<item hex="15F" dec="351" id="3" name="Cactus Green (Dye)"/> 
+		<item hex="15F" dec="351" id="4" name="Coco Beans (Dye)"/> 
+		<item hex="15F" dec="351" id="5" name="Lapis Lazuli (Dye)"/> 
+		<item hex="15F" dec="351" id="6" name="Purple (Dye)"/> 
+		<item hex="15F" dec="351" id="7" name="Cyan (Dye)"/> 
+		<item hex="15F" dec="351" id="8" name="Light Gray (Dye)"/> 
+		<item hex="15F" dec="351" id="9" name="Gray (Dye)"/> 
+		<item hex="15F" dec="351" id="10" name="Pink (Dye)"/> 
+		<item hex="15F" dec="351" id="11" name="Dandelion Yellow (Dye)"/> 
+		<item hex="15F" dec="351" id="12" name="Light Blue (Dye)"/>
+		<item hex="15F" dec="351" id="13" name="Magenta (Dye)"/> 
+		<item hex="15F" dec="351" id="14" name="Orange (Dye)"/> 
+		<item hex="15F" dec="351" id="14" name="Bone Meal (Dye)"/> 
+		<item hex="15F" dec="351" id="0" name="Ink Sack (Dye)"/> 
 		<item hex="160" dec="352" name="Bone"/> 
 		<item hex="161" dec="353" name="Sugar"/> 
 		<item hex="162" dec="354" name="Cake"/> 
