@@ -9,7 +9,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Logger;
+import java.lang.String;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
@@ -18,6 +21,7 @@ import org.bukkit.event.Event.Priority;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginLoader;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.Plugin;
 
 /**
 * @title  SearchIds
@@ -28,7 +32,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class SearchIds extends JavaPlugin  {
 
 	protected static final Logger log = Logger.getLogger("Minecraft");
-    private final SearchIdsPlayerListener playerListener = new SearchIdsPlayerListener(this);
 	public  String name    = getDescription().getName();
 	public  String version = getDescription().getVersion();
 
@@ -129,23 +132,20 @@ public class SearchIds extends JavaPlugin  {
 	
     public boolean onCommand(CommandSender sender, Command command, String commandLabel, String args[])
     {
-    	String[] split = command.split(" ");
-        Player player = (Player)sender;
-		String command = command;
-	
-		if((!event.isCancelled()) && command.equalsIgnoreCase("/" + SearchIds.searchCommand)) {
-			if (split.length > 1) {
+		String commandName = command.getName();
+        Player player = (Player)sender;	
+		if(commandName.equalsIgnoreCase("/" + SearchIds.searchCommand)) {
+			if (args.length > 1) {
 				String query = "";
-				for (int i = 1; i<split.length; i++) {
-					query += (split[i] + " ");
+				for (int i = 1; i<args.length; i++) {
+					query += (args[i] + " ");
 				}
 				query = query.trim();
-				plugin.printSearchResults(player, SearchIds.parser.search(query, SearchIds.base), query);
+				printSearchResults(player, SearchIds.parser.search(query, SearchIds.base), query);
 			} else {
 				player.sendMessage(ChatColor.RED + "Correct usage is: " + "/"+SearchIds.searchCommand + " [item to search for]");
 			}
-			
-			event.setCancelled(true);
+		return true;
 		}
 	}
 	
