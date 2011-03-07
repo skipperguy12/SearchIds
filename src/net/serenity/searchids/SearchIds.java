@@ -38,7 +38,7 @@ public class SearchIds extends JavaPlugin  {
 	// Properties
 	public  static String  searchType         = "all";
 	public  static String  dataXml            = "search-ids-data.xml";
-	public  static String  updateSource       = "https://cr-wd.com/minecraft/plugins/SearchIds/data.xml";
+	public  static String  updateSource       = "https://github.com/mrapple/SearchIds/raw/master/search-ids-data.xml";
 	public  static boolean autoUpdate         = true;
 	public  static String  searchCommand      = "search";
 	public  static String  base               = "decimal";
@@ -97,7 +97,7 @@ public class SearchIds extends JavaPlugin  {
 		baseId             = props.getString("base-id", "decimal");
 		searchCommand      = props.getString("command", "search");
 		dataXml            = props.getString("data-xml", "search-ids-data.xml");
-		updateSource       = props.getString("update-source", "https://github.com/croemmich/SearchIds/raw/master/search-ids-data.xml");
+		updateSource       = props.getString("update-source", "https://github.com/mrapple/SearchIds/raw/master/search-ids-data.xml");
 		autoUpdate         = props.getBoolean("auto-update-data", true);
 		autoUpdateInterval = props.getInt("auto-update-interval", 86400);
 		nameWidth          = props.getInt("width-blockname", 24);
