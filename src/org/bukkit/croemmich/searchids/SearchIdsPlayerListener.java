@@ -1,4 +1,4 @@
-package org.bukkit.croemmich.searchids;
+package net.serenity.searchids;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

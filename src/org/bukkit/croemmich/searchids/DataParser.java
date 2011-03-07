@@ -1,4 +1,4 @@
-package org.bukkit.croemmich.searchids;
+package net.serenity.searchids;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;

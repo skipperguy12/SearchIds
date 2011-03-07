@@ -1,4 +1,4 @@
-package org.bukkit.croemmich.searchids;
+package net.serenity.searchids;
 
 import java.io.File;
 import java.io.FileOutputStream;
