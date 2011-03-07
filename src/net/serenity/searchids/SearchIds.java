@@ -138,15 +138,15 @@ public class SearchIds extends JavaPlugin  {
     public boolean onCommand(CommandSender sender, Command command, String commandLabel, String args[])
     {
 		String commandName = command.getName();
-        Player player = (Player)sender;	
-		if(commandName.equalsIgnoreCase("/" + SearchIds.searchCommand)) {
+		Player player = (Player)sender;	
+		if(commandName.equalsIgnoreCase("/" + searchCommand)) {
 			if (args.length > 1) {
 				String query = "";
 				for (int i = 1; i<args.length; i++) {
 					query += (args[i] + " ");
 				}
 				query = query.trim();
-				printSearchResults(player, SearchIds.parser.search(query, SearchIds.base), query);
+				printSearchResults(player, parser.search(query, SearchIds.base), query);
 			} else {
 				player.sendMessage(ChatColor.RED + "Correct usage is: " + "/"+SearchIds.searchCommand + " [item to search for]");
 			}
