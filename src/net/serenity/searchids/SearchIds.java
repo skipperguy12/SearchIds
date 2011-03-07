@@ -32,8 +32,8 @@ import org.bukkit.plugin.Plugin;
 public class SearchIds extends JavaPlugin  {
 
 	protected static final Logger log = Logger.getLogger("Minecraft");
-	public  String name    = getDescription().getName();
-	public  String version = getDescription().getVersion();
+	public  String name    = "";
+	public  String version = "";
 
 	private static String propFile = "search-ids.properties";
 	private static iProperty props;
@@ -62,7 +62,12 @@ public class SearchIds extends JavaPlugin  {
 
 	@Override
 	public void onEnable() {
-		log.info(name + " " + version + " enabled");
+		PluginDescriptionFile pdfFile = this.getDescription();
+		
+		name = pdfFile.getName();
+		version = pdfFile.getVersion();
+		
+		log.info( name + " version " + version + " is enabled!" );
 
 		if (!initProps()) {
 			log.severe(name + ": Could not initialise " + propFile);
@@ -145,8 +150,9 @@ public class SearchIds extends JavaPlugin  {
 			} else {
 				player.sendMessage(ChatColor.RED + "Correct usage is: " + "/"+SearchIds.searchCommand + " [item to search for]");
 			}
-		return true;
+			return true;
 		}
+		return true;
 	}
 	
 	public boolean updateData() {
