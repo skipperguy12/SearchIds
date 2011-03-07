@@ -51,13 +51,6 @@ public class SearchIds extends JavaPlugin  {
 	public  static DataParser  parser;
 	private UpdateThread updateThread;
 	
-	public SearchIds(PluginLoader pluginLoader, Server instance, PluginDescriptionFile desc, File folder, File plugin, ClassLoader cLoader) {
-		super(pluginLoader, instance, desc, folder, plugin, cLoader);
-		
-		getServer().getPluginManager().registerEvent(Event.Type.PLAYER_COMMAND, playerListener, Priority.Normal, this);
-	}
-	
-
 	@Override
 	public void onDisable() {
 		parser = null;
@@ -66,7 +59,10 @@ public class SearchIds extends JavaPlugin  {
 
 	@Override
 	public void onEnable() {
+		getServer().getPluginManager().registerEvent(Event.Type.PLAYER_COMMAND, playerListener, Priority.Normal, this);
+
 		log.info(name + " " + version + " enabled");
+
 		if (!initProps()) {
 			log.severe(name + ": Could not initialise " + propFile);
 			getServer().getPluginManager().disablePlugin(this);
