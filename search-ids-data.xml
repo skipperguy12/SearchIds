@@ -2,7 +2,7 @@
 <data>
 	<blocks>
 		<item hex="0" dec="0" name="Air"/> 
-		<item hex="1" dec="1" name="Smooth Stone"/> 
+		<item hex="1" dec="1" name="Stone"/> 
 		<item hex="2" dec="2" name="Grass"/> 
 		<item hex="3" dec="3" name="Dirt"/> 
 		<item hex="4" dec="4" name="Cobblestone"/> 
