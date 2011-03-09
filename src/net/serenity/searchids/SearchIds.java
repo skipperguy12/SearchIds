@@ -95,7 +95,7 @@ public class SearchIds extends JavaPlugin  {
 	}
 
 	public boolean initProps() {
-		props = new iProperty(propFile);
+		props = new iProperty("plugins/SearchIds/" + propFile);
 		
 		// Properties
 		searchType         = props.getString("search-type", "all");
@@ -115,7 +115,7 @@ public class SearchIds extends JavaPlugin  {
 			log.info(name + ": auto-update-interval cannot be less than 600");
 		}
 		
-        File file = new File(propFile);
+        File file = new File("plugins/SearchIds/" + propFile);
         return file.exists();
 	}
 	
@@ -124,7 +124,7 @@ public class SearchIds extends JavaPlugin  {
 			return false;
 		}
 		
-		File f = new File(dataXml);
+		File f = new File("plugins/SearchIds/" + dataXml);
 		if (!updateData() && !f.exists()) {
 			return false;
 		}
@@ -162,7 +162,7 @@ public class SearchIds extends JavaPlugin  {
 				log.info(name + ": Updating data from " + updateSource+"...");
 				InputStream is = url.openStream();
 				FileOutputStream fos = null;
-				fos = new FileOutputStream(dataXml);
+				fos = new FileOutputStream("plugins/SearchIds/" + dataXml);
 				int oneChar, count = 0;
 				while ((oneChar = is.read()) != -1) {
 					fos.write(oneChar);
