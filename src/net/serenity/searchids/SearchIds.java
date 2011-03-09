@@ -28,6 +28,7 @@ import org.bukkit.plugin.Plugin;
 * @description Search for data id's in game or from the console
 * @date 2011-01-16
 * @author croemmich
+* @maintainer mrapple
 */
 public class SearchIds extends JavaPlugin  {
 
