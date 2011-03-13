@@ -2,7 +2,7 @@ package net.serenity.searchids;
 public class UpdateThread implements Runnable {
     private boolean running = false;
     private Thread thread;
-    
+
     private SearchIds ids;
 
     public UpdateThread(SearchIds ids) {
