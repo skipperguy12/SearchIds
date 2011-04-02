@@ -113,6 +113,9 @@ public class SearchIds extends JavaPlugin  {
 			log.info(name + ": auto-update-interval cannot be less than 600");
 		}
 
+		File folder = new File("plugins/SearchIds/");
+		folder.createNewFile();
+		
 		File file = new File("plugins/SearchIds/" + propFile);
 		return file.exists();
 	}
