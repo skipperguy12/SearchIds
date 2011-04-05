@@ -224,6 +224,7 @@
 		<item hex="161" dec="353" name="Sugar"/>
 		<item hex="162" dec="354" name="Cake"/>
 		<item hex="163" dec="355" name="Bed"/>
+		<item hex="165" dec="357" name="Cookie"/>
 		<item hex="8D0" dec="2256" name="Gold Music Disc (record)"/>
 		<item hex="8D1" dec="2257" name="Green Music Disc (record)"/>
 	</items>
