@@ -104,8 +104,8 @@
 		<item hex="5A" dec="90" name="Portal"/>
 		<item hex="5B" dec="91" name="Jack-O-Lantern"/>
 		<item hex="5C" dec="92" name="Cake Block"/>
-		<item hex="5D" dec="93" name="Redstone Repeater (off)"/>
-		<item hex="5E" dec="94" name="Redstone Repeater (on)"/>
+		<item hex="5D" dec="93" name="Redstone Repeater Block (off)"/>
+		<item hex="5E" dec="94" name="Redstone Repeater Block (on)"/>
 	</blocks>
 	<items>
 		<item hex="100" dec="256" name="Iron Shovel"/>
@@ -224,6 +224,7 @@
 		<item hex="161" dec="353" name="Sugar"/>
 		<item hex="162" dec="354" name="Cake"/>
 		<item hex="163" dec="355" name="Bed"/>
+		<item hex="164" dec="356" name="Redstone Repeater"/>
 		<item hex="165" dec="357" name="Cookie"/>
 		<item hex="8D0" dec="2256" name="Gold Music Disc (record)"/>
 		<item hex="8D1" dec="2257" name="Green Music Disc (record)"/>
