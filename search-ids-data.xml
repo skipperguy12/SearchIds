@@ -32,6 +32,9 @@
 		<item hex="18" dec="24" name="Sandstone"/>
 		<item hex="19" dec="25" name="Note Block"/>
 		<item hex="1A" dec="26" name="Bed Block"/>
+		<item hex="1B" dec="27" name="Powered Rail"/>
+		<item hex="1C" dec="28" name="Detector Rail"/>
+		<item hex="1E" dec="30" name="Web"/>
 		<item hex="23" dec="35" id="0" name="White Wool (Cloth)"/>
 		<item hex="23" dec="35" id="1" name="Orange Wool (Cloth)"/>
 		<item hex="23" dec="35" id="2" name="Magenta Wool (Cloth)"/>
@@ -106,6 +109,7 @@
 		<item hex="5C" dec="92" name="Cake Block"/>
 		<item hex="5D" dec="93" name="Redstone Repeater Block (off)"/>
 		<item hex="5E" dec="94" name="Redstone Repeater Block (on)"/>
+		<item hex="5F" dec="95" name="Locked Chest"/>
 	</blocks>
 	<items>
 		<item hex="100" dec="256" name="Iron Shovel"/>
