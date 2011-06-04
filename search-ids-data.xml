@@ -35,6 +35,8 @@
 		<item hex="1B" dec="27" name="Powered Rail"/>
 		<item hex="1C" dec="28" name="Detector Rail"/>
 		<item hex="1E" dec="30" name="Web"/>
+		<item hex="1F" dec="31" name="Tall Grass (Weed)"/>
+		<item hex="1G" dec="32" name="Dead Shrub (Grass)"/>
 		<item hex="23" dec="35" id="0" name="White Wool (Cloth)"/>
 		<item hex="23" dec="35" id="1" name="Orange Wool (Cloth)"/>
 		<item hex="23" dec="35" id="2" name="Magenta Wool (Cloth)"/>
@@ -110,6 +112,7 @@
 		<item hex="5D" dec="93" name="Redstone Repeater Block (off)"/>
 		<item hex="5E" dec="94" name="Redstone Repeater Block (on)"/>
 		<item hex="5F" dec="95" name="Locked Chest"/>
+		<item hex="5G" dec="96" name="Locked Chest"/>
 	</blocks>
 	<items>
 		<item hex="100" dec="256" name="Iron Shovel"/>
@@ -230,6 +233,7 @@
 		<item hex="163" dec="355" name="Bed"/>
 		<item hex="164" dec="356" name="Redstone Repeater"/>
 		<item hex="165" dec="357" name="Cookie"/>
+		<item hex="166" dec="358" name="Map"/>
 		<item hex="8D0" dec="2256" name="Gold Music Disc (record)"/>
 		<item hex="8D1" dec="2257" name="Green Music Disc (record)"/>
 	</items>
