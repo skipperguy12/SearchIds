@@ -112,7 +112,7 @@
 		<item hex="5D" dec="93" name="Redstone Repeater Block (off)"/>
 		<item hex="5E" dec="94" name="Redstone Repeater Block (on)"/>
 		<item hex="5F" dec="95" name="Locked Chest"/>
-		<item hex="5G" dec="96" name="Locked Chest"/>
+		<item hex="5G" dec="96" name="Trap Door (Hatch)"/>
 	</blocks>
 	<items>
 		<item hex="100" dec="256" name="Iron Shovel"/>
