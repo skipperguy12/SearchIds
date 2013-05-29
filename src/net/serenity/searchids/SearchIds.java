@@ -41,7 +41,7 @@ public class SearchIds extends JavaPlugin  {
 	// Properties
 	public  static String  searchType         = "all";
 	public  static String  dataXml            = "search-ids-data.xml";
-	public  static String  updateSource       = "https://github.com/mrapple/SearchIds/raw/master/search-ids-data.xml";
+	public  static String  updateSource       = "https://github.com/skipperguy12/SearchIds/raw/master/search-ids-data.xml";
 	public  static boolean autoUpdate         = true;
 	public  static String  base               = "decimal";
 	public  static String  baseId             = "decimal";
