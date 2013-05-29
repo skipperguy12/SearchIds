@@ -1,7 +1,0 @@
-name: SearchIds
-main: net.serenity.searchids.SearchIds
-version: 2.3
-commands:
-    search:
-        description: Search for item IDs and data values
-        usage: /<command> <item to search for>
